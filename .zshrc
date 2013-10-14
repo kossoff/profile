@@ -56,12 +56,10 @@ export PATH="/usr/local/bin:usr/local/sbin:$PATH:$HOME/.rvm/bin" # Add RVM to PA
 
 if [ "$SSH_TTY" ]; then
   if [ ! "$STY" ] ; then
-    CHOICE=`$HOME/.zchoose`
-    if [ -z "$CHOICE" ]
-    then
-      exec screen
+    if $(screen -ls | grep -q pts) ; then
+      screen -x;
     else
-      exec screen -dr $CHOICE
+      screen -R;
     fi
   fi
 fi
