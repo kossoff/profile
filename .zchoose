@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+USERNAME=`whoami`
+
+i=0
+declare -ax SCREENS
+
+SOCKETS=`find /var/run/screen/S-$USERNAME -type p`
+
+if [ -z "$SOCKETS" ]
+then
+  exit 0
+fi
+
+for S in $SOCKETS
+do
+  ((i=$i+1))
+  S=`basename $S`
+  SCREENS[$i]=`screen -ls | grep $S | perl -e '$s=<>; $s =~ s/^t(.*)s/$1/; $s =~ s/s/_/g; print $s'`
+done
+
+
+MENU=""
+for ((j=1; j<=$i; j=$j+1))
+do
+  MENU="$MENU $j ${SCREENS[$j]}"
+done
+
+WHICH=`dialog --stdout --menu Select: 0 0 0 $MENU`
+echo ${SCREENS[$WHICH]} | sed -e 's/_(.*)$//'
