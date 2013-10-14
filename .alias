@@ -1,0 +1,5 @@
+alias ls='ls -a'
+alias ll='ls -al'
+alias ps='ps auxw'
+alias sudo='sudo -E'
+alias -s {pdf,djvu}="nohup okular"
