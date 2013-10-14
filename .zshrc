@@ -42,6 +42,13 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+if [ -d $HOME/".oh-my-zsh" ]
+then
+  continue
+else
+  git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
