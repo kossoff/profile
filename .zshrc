@@ -54,6 +54,8 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH="/sbin:/usr/sbin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+sh ~/bin/addgitdiff
+
 if [ "$SSH_TTY" ]; then
   if [ ! "$STY" ] ; then
     if $(screen -ls | grep -q pts) ; then
