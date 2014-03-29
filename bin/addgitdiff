@@ -2,8 +2,7 @@
 
 VAL=`cat .gitconfig|grep diff_wrapper|awk -F "/" '{print $5;}'`
 
-if [ $VAL == "diff_wrapper" ];
-then
+if [ "$VAL" == "diff_wrapper" ]; then
   exit 0
 else
   echo "[diff]
