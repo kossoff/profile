@@ -1,12 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 VAL=`cat .gitconfig|grep diff_wrapper|awk -F "/" '{print $5;}'`
 
 if [ "$VAL" == "diff_wrapper" ]; then
   exit 0
 else
-  echo "[diff]
-    external = $HOME/bin/diff_wrapper
-[pager]
-    diff =" >> ~/.gitconfig
+  echo "[diff]\n\texternal = $HOME/bin/diff_wrapper\n[pager]\n\tdiff =" >> ~/.gitconfig
 fi
