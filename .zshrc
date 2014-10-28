@@ -52,7 +52,50 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH="/sbin:/usr/sbin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# rw-r--r-- for new files
+umask 022
+
+export PAGER=less
+
+LANG="ru_RU.UTF-8"
+LC_CTYPE="ru_RU.UTF-8"
+LC_COLLATE="POSIX"
+LC_ALL="ru_RU.UTF-8"
+
+# rigth prompt with clock
+RPROMPT="  %{$fg_bold[black]%}%D{%d/%m/%y %H:%M:%S}%{${reset_color}%}"
+
+BLOCKSIZE=M
+export BLOCKSIZE
+
+# включает горячие клавиши из emacs, -v из vim
+bindkey -e
+# разворачивание пути к команде
+#bindkey 'вбить сочетание клавиш' expand-cmd-path
+bindkey '^[[3~' delete-char
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_NO_STORE
+
+setopt AUTOCD BSD_ECHO
+setopt CORRECT_ALL
+
+# for Tramp Mode in (Aqua|E)macs
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
 
 sh ~/bin/addgitdiff
 
