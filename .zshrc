@@ -52,7 +52,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH="/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin" # Add RVM to PATH for scripting
 
 # rw-r--r-- for new files
 umask 022
