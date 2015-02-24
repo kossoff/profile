@@ -100,11 +100,5 @@ setopt CORRECT_ALL
 sh ~/bin/addgitdiff
 
 if [ "$SSH_TTY" ]; then
-  if [ ! "$STY" ] ; then
-    if $(screen -ls | grep -q pts) ; then
-      screen -x;
-    else
-      screen -R;
-    fi
-  fi
+  tmux attach
 fi
